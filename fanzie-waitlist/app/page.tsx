@@ -40,9 +40,8 @@ export default function WaitlistPage() {
   // Founder as Service - Premium feature
   const founderService = {
     icon: Crown,
-    title: "Founder as Service",
-    description: "Get direct access to our founding team for personalized guidance and support.",
-  }
+    title: "Founders as Service",
+    description: "Any query or problem, even small? Just a call away from you."}
    useEffect(() => {
     async function fetchCount() {
       try {
@@ -105,8 +104,8 @@ export default function WaitlistPage() {
     },
     {
       icon: Heart,
-      title: "Founders as a service 24/7",
-      description: "Any query or problem, even small? Just a call away from you.",
+      title: "The Right Community",
+      description: "A space built just for AI creators.",
     },
   ]
 
@@ -354,7 +353,7 @@ export default function WaitlistPage() {
                 initial={{ opacity: 0, y: 50, rotate: Math.random() * 10 - 5 }}
                 animate={{ opacity: 1, y: 0, rotate: 0 }}
                 transition={{
-                  delay:  0.1 * index,
+                  delay:  0.1,
                   duration: 0.2,
                   type: "spring",
                   stiffness: 100,
@@ -460,6 +459,7 @@ export default function WaitlistPage() {
             ))}
           </div>
         </motion.div>
+        
         {/* Premium Founder as Service Card - Top Center */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -480,14 +480,9 @@ export default function WaitlistPage() {
               }}
               className="relative group cursor-pointer max-w-md w-full"
             >
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-800/60 to-gray-900/80 backdrop-blur-sm border-2 border-rose-500/30 p-8 shadow-2xl shadow-rose-500/10">
+              <div className="relative overflow-clip rounded-3xl bg-gradient-to-br from-gray-800/60 to-gray-900/80 backdrop-blur-sm border-2 border-rose-500/30 p-8 shadow-2xl shadow-rose-500/10">
                 {/* Premium glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 to-purple-500/10 opacity-100 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Premium badge */}
-                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                  PREMIUM
-                </div>
 
                 {/* Enhanced floating particles */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -562,8 +557,7 @@ export default function WaitlistPage() {
                     mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                     maskComposite: "xor",
                     WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                    WebkitMaskComposite: "xor",
-                   
+                    WebkitMaskComposite: "xor", 
                   }}
                   animate={{
                     background: [
@@ -606,13 +600,13 @@ export default function WaitlistPage() {
           className="mt-auto"
         >
           <p className="text-sm font-medium uppercase tracking-widest bg-gradient-to-r from-rose-400 to-rose-600 bg-clip-text text-transparent mb-6">
-            LAUNCHING soon to empower creators
+            Launching soon to empower AI creators
           </p>
 
           {/* Social Media Links */}
           <div className="flex items-center justify-center gap-6 mt-4">
             <a
-              href="https://www.instagram.com/fanziehq/?utm_source=ig_web_button_share_sheet"
+              href="https://www.instagram.com/fanzie.loves"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-rose-400 transition-colors"
