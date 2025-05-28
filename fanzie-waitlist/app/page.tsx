@@ -109,15 +109,6 @@ export default function WaitlistPage() {
     },
   ]
 
-  // Load initial count from database
-  useEffect(() => {
-    const loadCount = async () => {
-      const result = await getWaitlistCount()
-      setTargetCount(result.count)
-    }
-    loadCount()
-  }, [])
-
   // Animate counter to target count
   useEffect(() => {
     if (count < targetCount) {
@@ -161,8 +152,7 @@ export default function WaitlistPage() {
           // If it's a new signup, update the count
           if (result.isNew) {
             // Get updated count from database
-            const countResult = await getWaitlistCount()
-            setTargetCount(countResult.count)
+            setTargetCount(prev => prev + 1)
           }
 
           // Hide success message after 5 seconds
