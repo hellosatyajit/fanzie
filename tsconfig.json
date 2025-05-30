@@ -1,0 +1,3 @@
+{
+  "extends": "@fanzie/tsconfig/base.json"
+}

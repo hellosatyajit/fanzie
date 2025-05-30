@@ -1,0 +1,21 @@
+{
+  "name": "fanzie",
+  "private": true,
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "dependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@manypkg/cli": "^0.24.0",
+    "turbo": "2.5.2",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "bun@1.2.11",
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  }
+}
