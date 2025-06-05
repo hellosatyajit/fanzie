@@ -2,8 +2,8 @@
 
 import React from "react"
 import { useState, useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from "@ui/button"
+import { Input } from "@ui/input"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   CheckCircle,
@@ -21,7 +21,7 @@ import {
   AlertCircle,
   Crown,
 } from "lucide-react"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Alert, AlertDescription } from "@ui/alert"
 import type { SVGProps } from "react"
 import { submitEmail, getWaitlistCount } from "@/actions/waitlist"
 
@@ -275,7 +275,7 @@ export default function WaitlistPage() {
             <Input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: { target: { value: React.SetStateAction<string> } }) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="pr-32 border-gray-800 bg-gray-900/60 backdrop-blur-sm text-white placeholder:text-gray-500 focus-visible:ring-rose-500 h-12"
               required
@@ -299,27 +299,111 @@ export default function WaitlistPage() {
           transition={{ delay: 0.55, duration: 0.5 }}
           className="my-4"
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500/10 to-rose-600/10 backdrop-blur-sm px-4 py-2 rounded-full border border-rose-500/20">
-            <div className="relative h-6 w-6 flex items-center justify-center">
-              <motion.div
-                className="absolute inset-0 bg-rose-500/20 rounded-full"
-                animate={{
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "loop",
-                }}
-              />
-              <UserPlus className="h-3 w-3 text-rose-400 relative z-10" />
+          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-rose-500/10 to-rose-600/10 backdrop-blur-sm px-6 py-3 rounded-full border border-rose-500/20">
+            <div className="relative h-12 w-40 flex items-center justify-center">
+          <div className="absolute inset-0 rounded-full"></div>
+
+              {/* Creator profile images - proper spacing without overlap */}
+              <div className="relative flex items-center justify-between w-full px-2">
+                {/* 1. Simfluencer - Tooltip on TOP */}
+                <div className="relative h-10 w-10 group z-50">
+                  <div className="rounded-full border-2 border-white overflow-hidden bg-gray-800 h-full w-full cursor-pointer">
+                    <img
+                      src="/creators/simfluencer-ai.png"
+                      alt="Simfluencer"
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  {/* Hover name with link - positioned on TOP */}
+                  <div className="absolute opacity-0 group-hover:opacity-100 bottom-full left-1/2 transform -translate-x-1/2 -translate-y-3 transition-opacity duration-200 z-[100]">
+                    <a
+                      href="https://www.instagram.com/simfluencer.ai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block bg-black/90 text-white text-sm py-2 px-3 rounded-lg whitespace-nowrap border border-rose-500/30 hover:bg-rose-500/20 hover:border-rose-400 transition-all duration-200"
+                    >
+                      Simfluencer
+                    </a>
+                    <div className="w-3 h-3 bg-black/90 rotate-45 border-r border-b border-rose-500/30 absolute left-1/2 transform -translate-x-1/2 top-full -mt-1.5"></div>
+                  </div>
+                </div>
+
+                {/* 2. Noba Jansen - Tooltip on BOTTOM */}
+                <div className="relative h-10 w-10 group z-40">
+                  <div className="rounded-full border-2 border-white overflow-hidden bg-gray-800 h-full w-full cursor-pointer">
+                    <img
+                      src="/creators/aitnoba.png"
+                      alt="Noba Jansen"
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  {/* Hover name with link - positioned on BOTTOM */}
+                  <div className="absolute opacity-0 group-hover:opacity-100 top-full left-1/2 transform -translate-x-1/2 translate-y-3 transition-opacity duration-200 z-[100]">
+                    <a
+                      href="https://www.instagram.com/aitnoba/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block bg-black/90 text-white text-sm py-2 px-3 rounded-lg whitespace-nowrap border border-rose-500/30 hover:bg-rose-500/20 hover:border-rose-400 transition-all duration-200"
+                    >
+                      Noba Jansen
+                    </a>
+                    <div className="w-3 h-3 bg-black/90 rotate-45 border-t border-r border-rose-500/30 absolute left-1/2 transform -translate-x-1/2 bottom-full mt-1.5"></div>
+                  </div>
+                </div>
+
+                {/* 3. EL Model Agency - Tooltip on TOP */}
+                <div className="relative h-10 w-10 group z-30">
+                  <div className="rounded-full border-2 border-white overflow-hidden bg-gray-800 h-full w-full cursor-pointer">
+                    <img
+                      src="/creators/emma.png"
+                      alt="EL Model Agency"
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  {/* Hover name with link - positioned on TOP */}
+                  <div className="absolute opacity-0 group-hover:opacity-100 bottom-full left-1/2 transform -translate-x-1/2 -translate-y-3 transition-opacity duration-200 z-[100]">
+                    <a
+                      href="https://www.instagram.com/emmanuelle.collab/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block bg-black/90 text-white text-sm py-2 px-3 rounded-lg whitespace-nowrap border border-rose-500/30 hover:bg-rose-500/20 hover:border-rose-400 transition-all duration-200"
+                    >
+                      EL Model Agency
+                    </a>
+                    <div className="w-3 h-3 bg-black/90 rotate-45 border-r border-b border-rose-500/30 absolute left-1/2 transform -translate-x-1/2 top-full -mt-1.5"></div>
+                  </div>
+                </div>
+
+                {/* 4. Robin Storm - Tooltip on BOTTOM */}
+                <div className="relative h-10 w-10 group z-20">
+                  <div className="rounded-full border-2 border-white overflow-hidden bg-gray-800 h-full w-full cursor-pointer">
+                    <img
+                      src="/creators/robin-storm.png"
+                      alt="Robin Storm"
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  {/* Hover name with link - positioned on BOTTOM */}
+                  <div className="absolute opacity-0 group-hover:opacity-100 top-full left-1/2 transform -translate-x-1/2 translate-y-3 transition-opacity duration-200 z-[100]">
+                    <a
+                      href="https://www.instagram.com/robin.storm88/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block bg-black/90 text-white text-sm py-2 px-3 rounded-lg whitespace-nowrap border border-rose-500/30 hover:bg-rose-500/20 hover:border-rose-400 transition-all duration-200"
+                    >
+                      Robin Storm
+                    </a>
+                    <div className="w-3 h-3 bg-black/90 rotate-45 border-t border-r border-rose-500/30 absolute left-1/2 transform -translate-x-1/2 bottom-full mt-1.5"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <motion.span
-              className="text-sm font-medium bg-gradient-to-r from-white to-rose-300 bg-clip-text text-transparent"
+              className="text-base font-medium bg-gradient-to-r from-white to-rose-300 bg-clip-text text-transparent ml-2"
               animate={{ opacity: [0.7, 1, 0.7] }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
             >
-              {count} creators onboard
+              {count} creators like these onboard
             </motion.span>
           </div>
         </motion.div>
